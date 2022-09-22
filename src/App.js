@@ -1,10 +1,11 @@
-import React, {useState} from "react";
-import Search from "./Components/Search";
+import React, { useState } from "react";
+// import Ingredients from "./Components/Ingredients";
+import RecipeLists from "./Components/RecipeLists";
 
 export const App = () => {
   return (
     <div>
-      <Search />
+      <RecipeLists />
     </div>
   );
 };
