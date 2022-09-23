@@ -1,67 +1,63 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import api from "../apis/api";
 
 const RecipeLists = () => {
   const [results, setResult] = useState([]);
+  const [searchQuery, setSearchQuery] = useState([]);
+  const ref = useRef();
+
+  const handleRef = () => {
+    console.log(ref.current.value);
+
+    //filtering (setSearchQuery has the data only filtered)
+    setSearchQuery(
+      results.filter((result) =>
+        result.title.toLowerCase().includes(ref.current.value)
+      )
+    );
+  };
 
   useEffect(() => {
     const fetchDatas = async () => {
-      if(results.length === 0){
+      if (results.length === 0) {
         const datas = await axios.get(
-  
-          // `https://api.spoonacular.com/mealplanner/generate?apiKey=${api.key}`
-          // `https://api.spoonacular.com/recipes/random?apiKey=${api.key}`
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api.key}`,
-          {
-            params: {
-              query: "pasta",
-            },
-          }
+          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api.key}`
         );
-        // console.log(datas.data.results);
-        //setItem = set the data (key, value )
-        //Convert a JavaScript object into a string
-        // localStorage.setItem("datas", JSON.stringify(datas.data));
+
         setResult(datas.data.results);
       }
-      
     };
     fetchDatas();
   }, []);
 
-  // useEffect(() => {
-  //   //save the datas which I fetched
-  //   const dataInLocalStorage = localStorage.getItem("datas");
-  //   if (dataInLocalStorage) {
-  //     console.log("No API call");
-  //     //JSON.parse = constructing the JavaScript value or object described by the string.
-  //     setResult(JSON.parse(dataInLocalStorage));
-  //   }
-  // }, []);
-
-  const renderedResults = results.map((result) => {
-    return (
-      <div className="content" key={result.id}>
-        <div className="item">{result.title}</div>
-        <div className="item">
-          <img src={result.image}></img>
-        </div>
-      </div>
-    );
-  });
-
   return (
-    <div>
-      <form>
-        <label>You can choose your today's dinner!</label>
-      </form>
-      <div>{renderedResults}</div>
+    <div className="main">
+      <div className="search">
+        <label>Get some ideas of today's din-din!</label>
+        <input type="text" ref={ref} onChange={handleRef} />
+      </div>
+      <div className="container">
+        {searchQuery.map((result) => (
+          <div className="content" key={result.id}>
+            <h3>{result.title}</h3>
+            <div className="item">
+              <img src={result.image}></img>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default RecipeLists;
+
+/* <input
+  value={term}
+  onChange={(e) => setTerm(e.target.value)}
+  className="input"
+/>; */
 
 //to do next
 //fetch ingredients id api

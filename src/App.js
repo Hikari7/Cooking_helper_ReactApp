@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import Ingredients from "./Components/Ingredients";
 import RecipeLists from "./Components/RecipeLists";
+import "./App.css";
 
 export const App = () => {
   return (
@@ -11,3 +12,4 @@ export const App = () => {
 };
 
 export default App;
+

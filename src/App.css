@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+
+.main {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.search {
+  text-align: center;
+}
+
+input {
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  outline: none;
+  border-radius: 2px;
+  width: 200px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.item {
+  justify-content: center;
+  width: 60%;
+  height: 60%;
+}
+
+.content {
+  padding: 4px;
+}
