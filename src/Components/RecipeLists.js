@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import api from "../apis/api";
+// import "./App.css";
 
 const RecipeLists = () => {
   const [results, setResult] = useState([]);
@@ -22,8 +23,21 @@ const RecipeLists = () => {
     const fetchDatas = async () => {
       if (results.length === 0) {
         const datas = await axios.get(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api.key}`
+          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api.key}`,
+          {
+            //axiosにparamsプロパティを用意してそれにオブジェクトを代入すると、keyとvalueはそれらを全て受け取りURLの末尾に自動的に引っ付く
+            params: {
+              cuisine: "Japanese",
+              cuisine: "American",
+              cusine: "Korean",
+              cusine: "Mexican",
+              cusine: "British",
+              cusine: "Chinese",
+              cusine: "Italian",
+            },
+          }
         );
+        console.log(datas);
 
         setResult(datas.data.results);
       }
@@ -32,39 +46,42 @@ const RecipeLists = () => {
   }, []);
 
   return (
-    <div className="main">
-      <div className="search">
-        <label>Get some ideas of today's din-din!</label>
-        <input type="text" ref={ref} onChange={handleRef} />
-      </div>
-      <div className="container">
-        {searchQuery.map((result) => (
-          <div className="content" key={result.id}>
-            <h3>{result.title}</h3>
-            <div className="item">
-              <img src={result.image}></img>
+    <div className=" px-16 py-6 bg-gray-200 font-body">
+      <main className="roundedpx-16 py-6 bg-white">
+        <div className="search flex justify-center">
+          <form 
+            p-3
+            bg-gray-50
+            rounded
+            bg-opacity-30
+            backdrop-filter
+            backdrop-blur-md
+            shadow-md
+          >
+            <label className="text-orange-500 text-3xl ">
+              Get some ideas of today's din-din!
+            </label>
+            <input
+              className="block shadow-md rounded px-2 pt-2 pb-2 mb-6 mt-6 items-center"
+              type="text"
+              ref={ref}
+              onChange={handleRef}
+            />
+          </form>
+        </div>
+        <div className="container">
+          {searchQuery.map((result) => (
+            <div className="content" key={result.id}>
+              <h3 className="text-primary m1-2">{result.title}</h3>
+              <div className="rounded">
+                <img className="rounded" src={result.image}></img>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 };
 
 export default RecipeLists;
-
-/* <input
-  value={term}
-  onChange={(e) => setTerm(e.target.value)}
-  className="input"
-/>; */
-
-//to do next
-//fetch ingredients id api
-//-> search ingredients
-//-> put together with the similar ingredients
-//-> Render to App JS
-// is that possible???
-//implement css
-
-//食材を検索してEnterを押したら、自動でその食材を使ったレシピがランダムにピックアップされる
