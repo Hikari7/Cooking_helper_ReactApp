@@ -2,10 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    // extend: {},
-    fontFamily: {
-      // body: ["Open Sans"],
+    extend: {
+      colors: {
+        primary: "#bada55",
+      },
     },
+    // fontFamily: {
+    //   body: ["Open Sans"],
+    // },
   },
   plugins: [],
 };
