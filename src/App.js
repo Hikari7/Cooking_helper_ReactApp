@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-// import Ingredients from "./Components/Ingredients";
-// import RecipeLists from "./Components/RecipeLists";
-import RecipeLists2 from "./Components/RecipeLists2";
+import RecipeIdea from "./Components/RecipeIdea";
 import "./App.css";
+import Carolies from "./Components/Carolies";
+import Home from "./Components/Home";
 
 export const App = () => {
   return (
-    <div>
-      {/* <RecipeLists /> */}
-      <RecipeLists2 />
+    <div className="App">
+      {/* <RecipeIdea />
+      <Carolies /> */}
+      <Home></Home>
     </div>
   );
 };
 
 export default App;
-

@@ -3,7 +3,7 @@ import axios from "axios";
 import api from "../apis/api";
 // import "./App.css";
 
-const RecipeLists2 = () => {
+const RecipeIdea = () => {
   const [results, setResult] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
   const ref = useRef();
@@ -23,11 +23,17 @@ const RecipeLists2 = () => {
     const fetchDatas = async () => {
       if (results.length === 0) {
         const datas = await axios.get(
-          `https://api.spoonacular.com/recipes/715538/similar?apiKey=${api.key}`
+          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api.key}`,
+          {
+            //axiosにparamsプロパティを用意してそれにオブジェクトを代入すると、keyとvalueはそれらを全て受け取りURLの末尾に自動的に引っ付く
+            params: {
+              cuisine: "Japanese,Italian, Korean, Mexican",
+            },
+          }
         );
         console.log(datas);
 
-        setResult(datas.data);
+        setResult(datas.data.results);
       }
     };
     fetchDatas();
@@ -58,14 +64,15 @@ const RecipeLists2 = () => {
           </form>
         </div>
         <div className="container mx-auto ">
-          <div className="container ">
+          <div className=" grid grid-cols-2 gap-6  ">
             {searchQuery.map((result) => (
-              <div className="content w" key={result.id}>
-                <a href={result.sourceUrl}>
-                  <h1 className="text-primary m1-2">{result.title}</h1>
-                </a>
-                <div className="text-gray-700">
-                  Ready in minuets: {result.readyInMinutes}
+              <div
+                className="content p-6 m-5 bg-gray-100 border-1 border-gray-300 rounded-xl2 shadow"
+                key={result.id}
+              >
+                <h3 className="text-primary m1-2">{result.title}</h3>
+                <div className="rounded">
+                  <img className="rounded" src={result.image}></img>
                 </div>
               </div>
             ))}
@@ -76,4 +83,4 @@ const RecipeLists2 = () => {
   );
 };
 
-export default RecipeLists2;
+export default RecipeIdea;
