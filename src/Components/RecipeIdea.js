@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import api from "../apis/api";
-// import "./App.css";
+import { Link } from "react-router-dom";
 
 const RecipeIdea = () => {
   const [results, setResult] = useState([]);
@@ -27,32 +27,26 @@ const RecipeIdea = () => {
           {
             //axiosにparamsプロパティを用意してそれにオブジェクトを代入すると、keyとvalueはそれらを全て受け取りURLの末尾に自動的に引っ付く
             params: {
-              cuisine: "Japanese,Italian, Korean, Mexican",
+              cuisine:
+                "Japanese, Italian, Korean, Mexican, American, French, Chinese, Greek, German, British,Thai, Vietnamese",
+              number: 30,
             },
           }
         );
-        console.log(datas);
+        // console.log(datas);
 
         setResult(datas.data.results);
       }
     };
     fetchDatas();
-  }, []);
+  }, [results]);
 
   return (
-    <div className=" px-16 py-6 bg-gray-200 font-body">
-      <main className="roundedpx-16 py-6 bg-white">
+    <div className="font-fancy  px-16 py-6 font-body  bg-gray-200 ">
+      <main className="roundedpx-16 py-16 px-10 bg-white">
         <div className="search flex justify-center">
-          <form
-            p-3
-            bg-gray-50
-            rounded
-            bg-opacity-30
-            backdrop-filter
-            backdrop-blur-md
-            shadow-md
-          >
-            <label className="text-gray-500 text-3xl ">
+          <form>
+            <label className="text-gray-800 text-3xl ">
               Get some ideas of today's din-din!
             </label>
             <input
@@ -60,6 +54,7 @@ const RecipeIdea = () => {
               type="text"
               ref={ref}
               onChange={handleRef}
+              placeholder="type whatever you want"
             />
           </form>
         </div>
@@ -70,13 +65,22 @@ const RecipeIdea = () => {
                 className="content p-6 m-5 bg-gray-100 border-1 border-gray-300 rounded-xl2 shadow"
                 key={result.id}
               >
-                <h3 className="text-primary m1-2">{result.title}</h3>
+                <h3 className="text-gray-700 mb-3 text-center">
+                  {result.title}
+                </h3>
                 <div className="rounded">
                   <img className="rounded" src={result.image}></img>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+        <div className="bottom flex justify-center mt-5">
+          <Link to="/">
+            <button className="bg-transparent hover:bg-pink-200 text-pink-400 font-semibold hover:text-white py-1 px-4 border border-pink-300 hover:border-transparent rounded ">
+              Back
+            </button>
+          </Link>
         </div>
       </main>
     </div>

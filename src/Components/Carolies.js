@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import api from "../apis/api"
+import api from "../apis/api";
 import MealList from "./MealList";
+import { Link } from "react-router-dom";
 
 function Carolies() {
   const [mealData, setMealData] = useState(null);
@@ -25,16 +26,41 @@ function Carolies() {
   }
 
   return (
-    <div className="Carolies">
-      <section className="controls">
-        <input
-          type="number"
-          placeholder="Calories (e.g. 2000)"
-          onChange={handleChange}
-        />
-      </section>
-      <button onClick={getMealData}>Get Daily Meal Plan</button>
-      {mealData && <MealList mealData={mealData} />} 
+    <div className="font-fancy  px-16 py-6 font-body  bg-gray-200 ">
+      <main className="roundedpx-16 py-16 px-10 bg-white">
+        <h3 className="text-gray-800 mb-3 text-center text-3xl">
+          Get healthy meals!
+        </h3>
+        <h2 className="text-gray-700 mb-3 text-center">
+          Type your desired calories in a day
+        </h2>
+        <div className="search mx-auto text-center">
+          <input
+            className="block shadow-md rounded px-2 pt-2 pb-2 mb-6 mt-6 container  w-1/3 text-center  mx-auto"
+            type="number"
+            placeholder="Carolies (e.g. 2000)"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="search mx-auto text-center">
+          <label className="text-gray-800 text-lg">
+            <button
+              className="bg-pink-400 hover:bg-pink-20 text-white font-bold py-1 px-4 rounded"
+              onClick={getMealData}
+            >
+              Search!
+            </button>
+            {mealData && <MealList mealData={mealData} />}
+          </label>
+        </div>
+        <div className="bottom flex justify-center mt-5">
+          <Link to="/">
+            <button className="bg-transparent hover:bg-pink-200 text-pink-400 font-semibold hover:text-white py-1 px-4 border border-pink-300 hover:border-transparent rounded mt-20">
+              Back
+            </button>
+          </Link>
+        </div>
+      </main>
     </div>
   );
 }

@@ -28,4 +28,5 @@ export default function MealList({ mealData }) {
   );
 }
 
+//ここで"meal"というpropsが作られる
 //App.jsの子コンポーネント

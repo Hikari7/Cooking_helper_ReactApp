@@ -6,13 +6,10 @@ module.exports = {
       colors: {
         primary: "#bada55",
       },
-      // backgroundImage: {
-      //   "hero-img": "url('https://source.unsplash.com/random')",
-      // },
+      fontFamily: {
+        fancy: ["Dancing Script"],
+      },
     },
-    // fontFamily: {
-    //   body: ["Open Sans"],
-    // },
   },
   plugins: [],
 };
