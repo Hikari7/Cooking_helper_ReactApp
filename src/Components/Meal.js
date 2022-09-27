@@ -27,17 +27,28 @@ export default function Meal({ meal }) {
 
   return (
     <article>
-      <div className=" bg-white rounded-xl shadow-lg space-y-2 p-6 items-center space-x-6 m-2 min-h-200">
-        <h1 className="text-gray-800">{meal.title}</h1>
-        <img className="rounded-sm  items-center" src={imageUrl} alt="recipe" />
-        <ul className="text-gray-700 w-3/5 m-auto">
-          <li className="">Preparation time: {meal.readyInMinutes} minuets</li>
-          <li>Number of servings: {meal.servings} minuets</li>
+      <div className=" bg-white rounded-xl shadow-lg  p-6 items-center  mt-10 min-h-200 mx-2">
+        <h1 className="text-gray-800 my-5 text-md h-20 text-center items-center">
+          {meal.title}
+        </h1>
+        <img
+          className="rounded-sm  my-3 items-center"
+          src={imageUrl}
+          alt="recipe"
+        />
+        <ul className="text-gray-700 w-1/2 m-auto text-sm h-50">
+          <li className="my-2 w-auto">
+            Preparation time: {meal.readyInMinutes} minuets
+          </li>
+          <li className="my-2 w-auto">
+            Number of servings: {meal.servings} minuets
+          </li>
         </ul>
-
-        <a className="text-center" href={meal.sourceUrl}>
-          Go to recipe
-        </a>
+        <button className="bg-gray-400 hover:bg-pink-200 text-white hover:text-gray-400 font-bold py-1 px-4 rounded mt-4">
+          <a className="text-center" href={meal.sourceUrl}>
+            Go to recipe
+          </a>
+        </button>
       </div>
     </article>
   );
