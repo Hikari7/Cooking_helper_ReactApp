@@ -55,7 +55,7 @@ function Carolies() {
         </div>
         <div className="bottom flex justify-center mt-5">
           <Link to="/">
-            <button className="bg-transparent hover:bg-pink-200 text-pink-400 font-semibold hover:text-white py-1 px-4 border border-pink-300 hover:border-transparent rounded mt-20">
+            <button className="bg-transparent hover:bg-pink-200 text-pink-400 font-semibold hover:text-white py-1 px-4 border border-pink-300 hover:border-transparent rounded mt-5">
               Back
             </button>
           </Link>

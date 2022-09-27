@@ -33,7 +33,6 @@ const RecipeIdea = () => {
             },
           }
         );
-        // console.log(datas);
 
         setResult(datas.data.results);
       }
