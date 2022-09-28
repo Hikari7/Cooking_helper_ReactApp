@@ -32,7 +32,7 @@ function Carolies() {
           Get healthy meals!
         </h3>
         <h2 className="text-gray-700 mb-3 text-center">
-          Type your desired calories in a day
+          Type your desired calories
         </h2>
         <div className="search mx-auto text-center">
           <input
