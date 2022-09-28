@@ -41,7 +41,7 @@ const RecipeIdea = () => {
   }, [results]);
 
   return (
-    <div className="font-fancy  px-16 py-6 font-body  bg-gray-200 ">
+    <div className="font-fancy  px-16 py-6 font-body  bg-gray-200 min-h-screen">
       <main className="roundedpx-16 py-16 px-10 bg-white">
         <div className="search flex justify-center">
           <form>
@@ -58,17 +58,17 @@ const RecipeIdea = () => {
           </form>
         </div>
         <div className="container mx-auto ">
-          <div className=" grid grid-cols-2 gap-6  ">
+          <div className=" grid grid-cols-2 gap-6">
             {searchQuery.map((result) => (
               <div
-                className="content p-6 m-5 bg-gray-100 border-1 border-gray-300 rounded-xl2 shadow"
+                className="content p-6 m-5 bg-gray-100 border-1 border-gray-300 drop-shadow-xl rounded-md"
                 key={result.id}
               >
-                <h3 className="text-gray-700 mb-3 text-center">
+                <h3 className="text-orange-300 text-md mb-3 text-center h-10">
                   {result.title}
                 </h3>
-                <div className="rounded">
-                  <img className="rounded" src={result.image}></img>
+                <div className="items-center">
+                  <img className="rounded m-auto" src={result.image}></img>
                 </div>
               </div>
             ))}

@@ -28,7 +28,7 @@ export default function Meal({ meal }) {
   return (
     <article>
       <div className=" bg-white rounded-xl shadow-lg  p-6 items-center  mt-10 min-h-200 mx-2">
-        <h1 className="text-gray-800 my-5 text-md h-20 text-center items-center">
+        <h1 className="my-5 text-md h-20 text-center items-center text-orange-300">
           {meal.title}
         </h1>
         <img
@@ -38,10 +38,12 @@ export default function Meal({ meal }) {
         />
         <ul className="text-gray-700 w-1/2 m-auto text-sm h-50">
           <li className="my-2 w-auto">
-            Preparation time: {meal.readyInMinutes} minuets
+            <p className="font-bold">Preparation time</p>
+            <p className="text-gray-600">{meal.readyInMinutes} minuets</p>
           </li>
           <li className="my-2 w-auto">
-            Number of servings: {meal.servings} minuets
+            <p className="font-bold">Number of servings</p>
+            <p className="text-gray-600">{meal.servings} minuets</p>
           </li>
         </ul>
         <button className="bg-gray-400 hover:bg-pink-200 text-white hover:text-gray-400 font-bold py-1 px-4 rounded mt-4">

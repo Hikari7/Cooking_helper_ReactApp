@@ -26,7 +26,7 @@ function Carolies() {
   }
 
   return (
-    <div className="font-fancy  px-16 py-6 font-body  bg-gray-200 ">
+    <div className="font-fancy  px-16 py-6 font-body  bg-gray-200 min-h-screen">
       <main className="roundedpx-16 py-16 px-10 bg-white">
         <h3 className="text-gray-800 mb-3 text-center text-3xl">
           Get healthy meals!
@@ -48,7 +48,7 @@ function Carolies() {
               className="bg-pink-400 hover:bg-pink-20 text-white font-bold py-1 px-4 rounded"
               onClick={getMealData}
             >
-              Search!
+              Search
             </button>
             {mealData && <MealList mealData={mealData} />}
           </label>
