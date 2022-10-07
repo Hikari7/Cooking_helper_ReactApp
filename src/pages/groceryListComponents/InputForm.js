@@ -1,30 +1,28 @@
-import React, { useState, useRef } from "react";
-import ToBuyList from "./ToBuyList";
+import React, { useRef, useState } from "react";
+//状態が変化していくものに対してはuseStateを使っていく(状態を管理する変数)
 
 // export const InputForm = () => {
-export default function InputForm({}) {
-  const [item, setItem] = useState("");
+export default function InputForm({ setText }) {
   const ref = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(ref.current.value);
+    setText(ref.current.value);
   };
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit} className="flex mb-6 mt-6 mx-auto w-1/2">
         <input
-          className="block shadow-lg rounded px-2 pt-2 pb-2 mb-6 mt-6 mx-auto"
+          className="block shadow-lg rounded px-2 pt-2 pb-2"
           type="text"
-          // ref={ref}
-          // value={item}
           ref={ref}
-          onChange={handleSubmit}
           placeholder="Type an item"
         />
+        <span className="material-symbols-outlined leading-6">add</span>
       </form>
-      {/* <ToBuyList /> */}
+      {/* {text && <ToBuyList />} */}
     </div>
   );
 }
