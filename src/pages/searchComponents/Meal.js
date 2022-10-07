@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import api from "../apis/api";
+import api from "../../apis/api";
 
 //MealListを出した後に、アクセスできるようにする個々のレシピを取得
 //Exportは子コンポーネント、親コンポーネントはMealList

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import api from "../apis/api";
+import api from "../../apis/api";
 import { Link } from "react-router-dom";
 
 const RecipeIdea = () => {

@@ -1,22 +1,31 @@
 import React, { useState } from "react";
-import RecipeIdea from "./Components/RecipeIdea";
+import RecipeIdea from "./pages/ideaComponents/RecipeIdea";
 import "./App.css";
-import Carolies from "./Components/Carolies";
+import MealMain from "./pages/searchComponents/MealMain";
 import Home from "./Components/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import GroceryMain from "./pages/groceryListComponents/GroceryMain";
 
 export const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/idea" element={<RecipeIdea />} />
-          <Route path="/carolies" element={<Carolies />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <GroceryMain />
+    </div>
   );
 };
 
 export default App;
+
+{
+  /* <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/idea" element={<RecipeIdea />} />
+          <Route path="/carolies" element={<MealMain />} />
+          <Route path="/grocerylist" element={<groceryMain />} />
+        </Routes>
+        <groceryMain />
+      </Router>
+    </div> */
+}

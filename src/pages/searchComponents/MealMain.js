@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../apis/api";
+import api from "../../apis/api";
 import MealList from "./MealList";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ function Carolies() {
       `https://api.spoonacular.com/mealplanner/generate?apiKey=${api.key}&timeFrame=day&targetCalories=${calories}`
     )
       .then((response) => response.json())
-      .then((data) => {
+     .then((data) => {
         setMealData(data);
         console.log(data);
       })
