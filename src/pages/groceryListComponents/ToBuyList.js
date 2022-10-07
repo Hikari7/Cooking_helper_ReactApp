@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-export const ToBuyList = () => {
-  return (
-    <div>ToBuyList</div>
-  )
-}
+const ToBuyList = (list) => {
+  return <div>{/* <p>{list}</p> */}</div>;
+};
+
+export default ToBuyList;
