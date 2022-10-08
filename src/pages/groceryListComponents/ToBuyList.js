@@ -8,8 +8,7 @@ const ToBuyList = ({ text }) => {
   // console.log(text); //文字列だけ受け取ることができたから、配列にしていくよ
   const [lists, setLists] = useState([]);
 
-  // setLists(()=> {})
-
+  // スプレッド構文でpushする
   useEffect(() => {
     setLists((prevState) => [...lists, text]);
   }, [text]);
@@ -18,7 +17,22 @@ const ToBuyList = ({ text }) => {
     <div>
       <ul>
         {lists.map((list) => {
-          return <li>{list}</li>;
+          return (
+            <li className="mx-auto justify-center flex items-center my-2 w-2/4 ">
+              <div
+                key={list}
+                className="bg-orange-300 p-2 w-full tracking-wider rounded-md"
+              >
+                {list}
+              </div>
+              <span className="material-symbols-outlined items-center cursor-pointer hover:opacity-30">
+                delete
+              </span>
+              <span className="material-symbols-outlined items-center cursor-pointer hover:opacity-30">
+                edit
+              </span>
+            </li>
+          );
         })}
       </ul>
     </div>

@@ -3,8 +3,7 @@ import React from "react";
 export default function Header() {
   return (
     <div>
-      <h1>Groucery List</h1>
-      <h2>Go to a grocery srotreeee</h2>
+      <h1 className="ext-gray-800 text-3xl ">Groucery List</h1>
     </div>
   );
 }
