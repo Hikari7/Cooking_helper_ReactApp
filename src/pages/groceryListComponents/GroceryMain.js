@@ -8,10 +8,6 @@ function GroceryMain() {
   //一旦ここでconstで定義しておいて、それを子コンポーネントでgenerateするイメージ
   const [text, setText] = useState("");
 
-  // function toggleCompleted(id) {
-  //   console.log(lists[0]);
-  // }
-
   //propsを子供に渡す
   return (
     <div>
