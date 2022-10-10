@@ -6,8 +6,9 @@ export default function InputForm({ setText }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setText(ref.current.value);
+    setText([ref.current.value]);
     ref.current.value = "";
+
   };
 
   return (
@@ -29,3 +30,57 @@ export default function InputForm({ setText }) {
     </div>
   );
 }
+
+
+// import React, { useState, useEffect } from "react";
+// // import InputForm from "./InputForm";
+
+// //inputで入力された内容を、ここにrenderingさせたい
+
+// const ToBuyList = ({ text }) => {
+//   // console.log(text); //文字列だけ受け取ることができたから、配列にしていくよ
+
+//   // const toBuy = { id: 1, completed: false };
+
+//   const [lists, setLists] = useState("");
+
+//   // スプレッド構文でpushする,　textが追加されるたびに更新
+//   useEffect(() => {
+//     setLists((prevState) => [...prevState, text]);
+//   }, [text]);
+
+//   return (
+//     <div>
+//       <ul>
+//         {lists.map((list) => {
+//           return (
+//             <li
+//               className="mx-auto justify-center flex items-center my-2 w-2/4"
+//               key={list}
+//             >
+//               <label>
+//                 <input
+//                   type="checkbox"
+//                   // checked={list.completed}
+//                   readOnly
+//                 ></input>
+//               </label>
+//               <div className="bg-orange-300 p-2 w-full tracking-wider rounded-md">
+//                 {list}
+//               </div>
+//               <span className="material-symbols-outlined items-center cursor-pointer hover:opacity-30">
+//                 delete
+//               </span>
+//               <span className="material-symbols-outlined items-center cursor-pointer hover:opacity-30">
+//                 edit
+//               </span>
+//             </li>
+//           );
+//         })}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default ToBuyList;
+

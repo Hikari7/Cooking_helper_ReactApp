@@ -7,6 +7,12 @@ function GroceryMain() {
   //textをpropとして扱う,{props}の形
   //一旦ここでconstで定義しておいて、それを子コンポーネントでgenerateするイメージ
   const [text, setText] = useState("");
+
+  // function toggleCompleted(id) {
+  //   console.log(lists[0]);
+  // }
+
+  //propsを子供に渡す
   return (
     <div>
       <div className="font-fancy  px-16 py-6 font-body  bg-gray-200 min-h-screen">
