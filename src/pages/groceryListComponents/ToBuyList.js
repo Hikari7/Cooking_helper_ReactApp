@@ -5,12 +5,12 @@ import ToBuyListItem from "./ToBuyListItem";
 //inputで入力された内容を、ここにrenderingさせたい
 
 const ToBuyList = ({ text }) => {
-  const [lists, setLists] = useState();
+  const [lists, setLists] = useState([]);
   // const [checked, setChecked] = useState(false);
 
   // スプレッド構文でpushする
 
-  //だがしかし、それぞれのlistにkeyを割り振りたい(オブジェクトの形)
+  //それぞれのlistにkeyを割り振りたい(オブジェクトの形)
   useEffect(() => {
     setLists((prevState) => [...prevState, text]);
   }, [text]);
@@ -23,8 +23,6 @@ const ToBuyList = ({ text }) => {
   };
 
   const handleCompleted = (index) => {
-    //更新した後の値をcheckedで取り入れなきゃいけないけど、そこにそれを入れたらいいかわかりません
-    //子コンポーネント作った方がよき？？
     const updatedList = lists.map((list) => {
       if (index === list) {
         return {
@@ -35,6 +33,10 @@ const ToBuyList = ({ text }) => {
       return list;
     });
     setLists(updatedList);
+  };
+
+  const handleEdit = (index) => {
+    console.log("editはここをクリック！");
   };
 
   //toBuyListItemにオブジェクトのpropsを渡す
@@ -49,6 +51,7 @@ const ToBuyList = ({ text }) => {
               index={index}
               handleCompleted={handleCompleted}
               handleDelete={handleDelete}
+              handleEdit={handleEdit}
             />
           );
         })}

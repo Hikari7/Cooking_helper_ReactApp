@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-export default function ToBuyListItem({ list, index }) {
+export default function ToBuyListItem({
+  list,
+  index,
+  handleCompleted,
+  handleDelete,
+  handleEdit,
+}) {
   return (
     <div className={`${list.completed ? "completed" : ""}`} key={index}>
       <li className="mx-auto justify-center flex items-center my-2 w-2/4">
@@ -23,7 +29,7 @@ export default function ToBuyListItem({ list, index }) {
         </span>
         <span
           className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
-          onClick={() => handleEdit(index)}
+          onClick={() => handleEdit(list)}
         >
           edit
         </span>
