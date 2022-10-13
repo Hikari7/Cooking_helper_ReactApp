@@ -8,7 +8,12 @@ export default function InputForm({ setText }) {
     e.preventDefault();
     setText([ref.current.value]);
     ref.current.value = "";
+  };
 
+  const handleAdd = (e) => {
+    e.preventDefault();
+    setText([ref.current.value]);
+    ref.current.value = "";
   };
 
   return (
@@ -23,14 +28,16 @@ export default function InputForm({ setText }) {
           ref={ref}
           placeholder="Type an item"
         />
-        <span className="material-symbols-outlined cursor-pointer hover:opacity-30">
+        <span
+          className="material-symbols-outlined cursor-pointer hover:opacity-30"
+          onClick={handleAdd}
+        >
           add
         </span>
       </form>
     </div>
   );
 }
-
 
 // import React, { useState, useEffect } from "react";
 // // import InputForm from "./InputForm";
@@ -83,4 +90,3 @@ export default function InputForm({ setText }) {
 // };
 
 // export default ToBuyList;
-

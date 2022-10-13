@@ -1,29 +1,28 @@
-import { useState } from "react";
-
 export default function ToBuyListItem({
   list,
-  index,
+  key,
   handleCompleted,
   handleDelete,
   handleEdit,
 }) {
   return (
-    <div className={`${list.completed ? "completed" : ""}`} key={index}>
-      <li className="mx-auto justify-center flex items-center my-2 w-2/4">
+    <div>
+      <div className="mx-auto justify-center flex items-center my-2 w-2/4">
         <span
           className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
           checked
-          onClick={() => handleCompleted(index)}
+          onClick={() => handleCompleted(list)}
         >
           done
         </span>
+        {/* <span className={`${list.completed ? "completed" : ""}`}></span> */}
 
         <div className="bg-orange-300 p-2 w-full tracking-wider rounded-md">
           {list}
         </div>
         <span
           className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
-          onClick={() => handleDelete(index)}
+          onClick={() => handleDelete(list)}
         >
           delete
         </span>
@@ -33,7 +32,7 @@ export default function ToBuyListItem({
         >
           edit
         </span>
-      </li>
+      </div>
     </div>
   );
 }
