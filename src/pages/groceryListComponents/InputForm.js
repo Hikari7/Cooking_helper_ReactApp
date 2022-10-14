@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 //状態が変化していくものに対してはuseStateを使っていく(状態を管理する変数)
 
 export default function InputForm({ setText }) {

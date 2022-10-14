@@ -7,7 +7,7 @@ export default function ToBuyListItem({
   completed,
 }) {
   return (
-    <div className={`list ${completed ? "completed" : ""}`}>
+    <div className={` ${completed ? "completed" : ""}`}>
       <div className="mx-auto justify-center flex items-center my-2 w-2/4">
         <span
           className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
