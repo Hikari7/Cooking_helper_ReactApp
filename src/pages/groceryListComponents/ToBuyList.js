@@ -1,78 +1,50 @@
 import React, { useState, useEffect } from "react";
 import ToBuyListItem from "./ToBuyListItem";
-import { nanoid } from "nanoid";
 
 //inputFormが子どもで、tobuyListが親
 //inputで入力された内容を、ここにrenderingさせたい
 
 const ToBuyList = ({ text }) => {
-  const [lists, setLists] = useState([{ id: "", completed: false }]);
-  // const [completed, setCompleted] = useState(false);
+  const [lists, setLists] = useState([]);
   // スプレッド構文でpushする
 
-  // const newList = { id: `todo-${nanoid()}`, completed: false };
-
   useEffect(() => {
-    setLists((prevState) => [...prevState, { text }]);
+    if (!!text) {
+      setLists((prevState) => [
+        ...prevState,
+        { id: Math.random(), completed: false, text },
+      ]);
+    }
   }, [text]);
 
-  const handleDelete = (id) => {
-    // console.log(list.id);
-    setLists(() => [
-      ...lists.slice(0, id),
-      ...lists.slice(id + 1, lists.length),
-    ]);
+  // useEffect(() => {
+  // console.log("test");
+  // console.log(lists);
+  // }, [lists]);
+
+  const handleDelete = (key) => {
+    const removeItem = lists.filter((list) => {
+      return list.id !== key;
+    });
+    setLists(removeItem);
   };
 
-  const handleCompleted = (id) => {
+  const handleCompleted = () => {
     setLists(
-      lists.map((list, completed) => {
-        if (id === id) {
+      lists.map((list) => {
+        if (list === list.id) {
           return {
             ...list,
             completed: !list.completed,
           };
-          // return list;
         }
+        return list;
       })
     );
   };
 
-  // list.completed ? "completed" : ""
-
-  // const handleCompleted = (index) => {
-  //   setCompleted(
-  //     lists.map((list) => {
-  //       //if this task has the same ID as the edited task
-  //       if (list === list) {
-  //         // use object spread to make a new object
-  //         // whose `completed` prop has been inverted
-  //         return {
-  //           ...list,
-  //           completed: !list.completed,
-  //         };
-  //       }
-  //       return list;
-  //     })
-  //   );
-  // };
-
-  // const handleCompleted = (index) => {
-  //   setLists(
-  //     lists.map((list) => {
-  //       return index == index
-  //         ? { ...list, complete: !list.complete }
-  //         : { ...list };
-  //     })
-  //   );
-  // };
-
-  // const handleCompleted = (list) => {
-  //   setCompleted(!completed);
-  // };
-
-  const handleEdit = (index) => {
-    console.log("editはここをクリック");
+  const handleEdit = (list) => {
+    console.log("edit mode");
   };
 
   //toBuyListItemにオブジェクトのpropsを渡す
@@ -81,8 +53,9 @@ const ToBuyList = ({ text }) => {
       <ul>
         {lists.map((list) => (
           <ToBuyListItem
-            key={list.id}
-            list={list}
+            key={list.id} //key
+            list={list.id} //list
+            text={list.text}
             completed={list.completed}
             handleCompleted={handleCompleted}
             handleDelete={handleDelete}

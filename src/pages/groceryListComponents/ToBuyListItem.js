@@ -1,12 +1,12 @@
 export default function ToBuyListItem({
   list,
-  key,
+  text,
   handleCompleted,
   handleDelete,
   handleEdit,
 }) {
   return (
-    <div>
+    <div className={list.completed ? "completed" : ""}>　//tailwindでつける
       <div className="mx-auto justify-center flex items-center my-2 w-2/4">
         <span
           className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
@@ -15,10 +15,8 @@ export default function ToBuyListItem({
         >
           done
         </span>
-        {/* <span className={`${list.completed ? "completed" : ""}`}></span> */}
-
         <div className="bg-orange-300 p-2 w-full tracking-wider rounded-md">
-          {list}
+          {text}
         </div>
         <span
           className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
