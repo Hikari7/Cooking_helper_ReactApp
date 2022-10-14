@@ -29,18 +29,18 @@ const ToBuyList = ({ text }) => {
     setLists(removeItem);
   };
 
-  const handleCompleted = () => {
-    setLists(
-      lists.map((list) => {
-        if (list === list.id) {
-          return {
-            ...list,
-            completed: !list.completed,
-          };
-        }
-        return list;
-      })
-    );
+  const handleCompleted = (key) => {
+    const completedItem = lists.map((list) => {
+      console.log(list);
+      if (key === list.id) {
+        return {
+          ...list,
+          completed: !list.completed,
+        };
+      }
+      return list;
+    });
+    setLists(completedItem);
   };
 
   const handleEdit = (list) => {
