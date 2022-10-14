@@ -1,13 +1,14 @@
 import React, { useRef } from "react";
 
-export default function EditForm({ setCurrentList, setIsEditing }) {
+export default function EditForm({ handleEdit, text, id }) {
   const ref = useRef();
 
   // Setup onChange handler for edit input
   const handleEditSubmit = (e) => {
     e.preventDefault();
     if (ref.current.value) {
-      setCurrentList(ref.current.value);
+      const handleEditInput = ref.current.value;
+      handleEdit({text:handleEditInput, id});
     }
   };
 
@@ -21,6 +22,7 @@ export default function EditForm({ setCurrentList, setIsEditing }) {
           className="block shadow-lg rounded px-2 pt-2 pb-2 w-3/5 bg-pink-100"
           type="text"
           ref={ref}
+          // value={text}
           placeholder="Edit an item"
         />
         <span
@@ -29,12 +31,12 @@ export default function EditForm({ setCurrentList, setIsEditing }) {
         >
           add_task
         </span>
-        <span
+        {/* <span
           className="material-symbols-outlined cursor-pointer hover:opacity-30 ml-2"
-          onClick={() => setIsEditing(false)}
+          // onClick={() => setIsEditing(false)}
         >
           cancel
-        </span>
+        </span> */}
       </form>
     </div>
   );

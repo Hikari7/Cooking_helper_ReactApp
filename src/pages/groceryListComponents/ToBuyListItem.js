@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import EditForm from "./EditForm";
+
 export default function ToBuyListItem({
   list,
   text,
@@ -6,6 +9,9 @@ export default function ToBuyListItem({
   handleEdit,
   completed,
 }) {
+  const [isEditing, setIsEditing] = useState(false);
+  // const [currentList, setCurrentList] = useState({});
+
   return (
     <div className={` ${completed ? "completed" : ""}`}>
       <div className="mx-auto justify-center flex items-center my-2 w-2/4">
@@ -17,7 +23,11 @@ export default function ToBuyListItem({
           done
         </span>
         <div className="bg-orange-300 p-2 w-full tracking-wider rounded-md">
-          {text}
+          {isEditing ? (
+            <EditForm handleEdit={handleEdit} text={text} id={list} />
+          ) : (
+            <>{text}</>
+          )}
         </div>
         <span
           className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
@@ -27,7 +37,7 @@ export default function ToBuyListItem({
         </span>
         <span
           className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
-          onClick={() => handleEdit(list)}
+          onClick={() => setIsEditing(!isEditing)}
         >
           edit
         </span>

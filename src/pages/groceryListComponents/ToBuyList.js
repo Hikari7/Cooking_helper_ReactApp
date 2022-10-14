@@ -4,8 +4,9 @@ import ToBuyListItem from "./ToBuyListItem";
 //inputFormが子どもで、tobuyListが親
 //inputで入力された内容を、ここにrenderingさせたい
 
-const ToBuyList = ({ text, currentList, setIsEditing }) => {
+const ToBuyList = ({ text }) => {
   const [lists, setLists] = useState([]);
+  const [currentList, setCurrentList] = useState([]);
 
   useEffect(() => {
     if (!!text) {
@@ -14,22 +15,9 @@ const ToBuyList = ({ text, currentList, setIsEditing }) => {
         { id: Math.random(), completed: false, text, isEditing: false },
       ]);
     }
-
-    // if (!!currentList) {
-    //   setLists((prevState) => [
-    //     ...prevState,
-    //     { id: Math.random(), completed: false, text, isEditing: false },
-    //   ]);
-    // }
-    // }, [text, currentList]);
   }, [text]);
 
   //setCurrentList取れてないから取る必要がある
-
-  // useEffect(() => {
-  //   console.log("test");
-  //   console.log(currentList);
-  // }, [text]);
 
   const handleDelete = (key) => {
     const removeItem = lists.filter((list) => {
@@ -51,19 +39,17 @@ const ToBuyList = ({ text, currentList, setIsEditing }) => {
     setLists(completedItem);
   };
 
-  const handleEdit = (key, currentList) => {
-    const editItem = lists.map((list) => {
-      // console.log(editItem);
-      if (key === list.id) {
+  //[text,id]
+  const handleEdit = ({ text, id }) => {
+    const editItem = lists.map((list, key) => {
+      if (id === list.id) {
         // update the list state with the updated list
-        return {
-          // list == currentList
-        }
-        console.log(list.text);
+        list.text = text;
       }
-      setLists(editItem);
-      setIsEditing(false);
+
+      return list;
     });
+    setLists(editItem);
   };
 
   //toBuyListItemにオブジェクトのpropsを渡す
