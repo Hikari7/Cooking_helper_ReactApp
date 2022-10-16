@@ -10,7 +10,6 @@ export default function ToBuyListItem({
   completed,
 }) {
   const [isEditing, setIsEditing] = useState(false);
-  // const [currentList, setCurrentList] = useState({});
 
   return (
     <div className={` ${completed ? "completed" : ""}`}>
@@ -24,7 +23,12 @@ export default function ToBuyListItem({
         </span>
         <div className="bg-orange-300 p-2 w-full tracking-wider rounded-md">
           {isEditing ? (
-            <EditForm handleEdit={handleEdit} text={text} id={list} />
+            <EditForm
+              handleEdit={handleEdit}
+              text={text}
+              id={list}
+              setIsEditing={setIsEditing}
+            />
           ) : (
             <>{text}</>
           )}

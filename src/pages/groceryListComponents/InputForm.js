@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-//状態が変化していくものに対してはuseStateを使っていく(状態を管理する変数)
 
 export default function InputForm({ setText }) {
   const ref = useRef();
@@ -13,8 +12,8 @@ export default function InputForm({ setText }) {
   return (
     <div>
       <form
-        onSubmit={handleSubmit}
         className="flex my-6 mx-0 items-center justify-center"
+        onSubmit={handleSubmit}
       >
         <input
           className="block shadow-lg rounded px-2 pt-2 pb-2 w-3/5"
@@ -32,3 +31,4 @@ export default function InputForm({ setText }) {
     </div>
   );
 }
+

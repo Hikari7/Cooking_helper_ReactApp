@@ -39,14 +39,12 @@ const ToBuyList = ({ text }) => {
     setLists(completedItem);
   };
 
-  //[text,id]
   const handleEdit = ({ text, id }) => {
-    const editItem = lists.map((list, key) => {
+    const editItem = lists.map((list) => {
       if (id === list.id) {
         // update the list state with the updated list
         list.text = text;
       }
-
       return list;
     });
     setLists(editItem);
