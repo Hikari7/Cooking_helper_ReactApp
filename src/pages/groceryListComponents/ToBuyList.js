@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import ToBuyListItem from "./ToBuyListItem";
 
-//inputFormが子どもで、tobuyListが親
-//inputで入力された内容を、ここにrenderingさせたい
-
 const ToBuyList = ({ text }) => {
   const [lists, setLists] = useState([]);
-  const [currentList, setCurrentList] = useState([]);
 
   useEffect(() => {
     if (!!text) {
@@ -16,8 +12,6 @@ const ToBuyList = ({ text }) => {
       ]);
     }
   }, [text]);
-
-  //setCurrentList取れてないから取る必要がある
 
   const handleDelete = (key) => {
     const removeItem = lists.filter((list) => {
@@ -42,7 +36,6 @@ const ToBuyList = ({ text }) => {
   const handleEdit = ({ text, id }) => {
     const editItem = lists.map((list) => {
       if (id === list.id) {
-        // update the list state with the updated list
         list.text = text;
       }
       return list;
@@ -50,14 +43,13 @@ const ToBuyList = ({ text }) => {
     setLists(editItem);
   };
 
-  //toBuyListItemにオブジェクトのpropsを渡す
   return (
     <div>
-      <ul>
+      <ul className="mt-5">
         {lists.map((list) => (
           <ToBuyListItem
-            key={list.id} //key
-            list={list.id} //list
+            key={list.id}
+            list={list.id}
             text={list.text}
             completed={list.completed}
             handleCompleted={handleCompleted}
@@ -71,5 +63,3 @@ const ToBuyList = ({ text }) => {
 };
 
 export default ToBuyList;
-
-//※onClick={handleDelete}で、onClickしたら、handlDeleteという「関数」が呼び出されますよってこと

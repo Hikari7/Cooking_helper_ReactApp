@@ -9,23 +9,18 @@ import GroceryMain from "./pages/groceryListComponents/GroceryMain";
 export const App = () => {
   return (
     <div>
-      <GroceryMain />
+      <div className="App">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/idea" element={<RecipeIdea />} />
+            <Route path="/carolies" element={<MealMain />} />
+            <Route path="/grocerylist" element={<GroceryMain />} />
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
 };
 
 export default App;
-
-{
-  /* <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/idea" element={<RecipeIdea />} />
-          <Route path="/carolies" element={<MealMain />} />
-          <Route path="/grocerylist" element={<groceryMain />} />
-        </Routes>
-        <groceryMain />
-      </Router>
-    </div> */
-}

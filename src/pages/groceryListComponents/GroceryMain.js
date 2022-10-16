@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import InputForm from "./InputForm";
 import ToBuyList from "./ToBuyList";
+import { Link } from "react-router-dom";
 
 function GroceryMain() {
   //textをpropとして扱う,{props}の形
@@ -16,6 +17,14 @@ function GroceryMain() {
           <Header />
           <InputForm setText={setText} />
           <ToBuyList text={text} />
+          <div className="bottom flex justify-center mt-5">
+            <Link to="/">
+              <button className="bg-transparent hover:bg-pink-200 text-pink-300 font-semibold hover:text-white py-1 px-4 border border-pink-400 hover:border-transparent rounded mt-10
+              ">
+                Back
+              </button>
+            </Link>
+          </div>
         </main>
       </div>
     </div>

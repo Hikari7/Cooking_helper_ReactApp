@@ -45,7 +45,7 @@ function Carolies() {
         <div className="search mx-auto text-center">
           <label className="text-gray-800 text-lg">
             <button
-              className="bg-pink-400 hover:bg-pink-20 text-white font-bold py-1 px-4 rounded"
+              className="bg-pink-300 hover:bg-pink-20 text-white font-bold py-1 px-4 rounded"
               onClick={getMealData}
             >
               Search
@@ -55,7 +55,7 @@ function Carolies() {
         </div>
         <div className="bottom flex justify-center mt-5">
           <Link to="/">
-            <button className="bg-transparent hover:bg-pink-200 text-pink-400 font-semibold hover:text-white py-1 px-4 border border-pink-300 hover:border-transparent rounded mt-5">
+            <button className="bg-transparent hover:bg-pink-200 text-pink-300 font-semibold hover:text-white py-1 px-4 border border-pink-400 hover:border-transparent rounded mt-5">
               Back
             </button>
           </Link>

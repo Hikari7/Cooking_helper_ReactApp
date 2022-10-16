@@ -9,9 +9,6 @@ const RecipeIdea = () => {
   const ref = useRef();
 
   const handleRef = () => {
-    console.log(ref.current.value);
-
-    //filtering (setSearchQuery has the data only filtered)
     setSearchQuery(
       results.filter((result) =>
         result.title.toLowerCase().includes(ref.current.value)
@@ -76,7 +73,7 @@ const RecipeIdea = () => {
         </div>
         <div className="bottom flex justify-center mt-5">
           <Link to="/">
-            <button className="bg-transparent hover:bg-pink-200 text-pink-400 font-semibold hover:text-white py-1 px-4 border border-pink-300 hover:border-transparent rounded ">
+            <button className="bg-transparent hover:bg-pink-200 text-pink-300 font-semibold hover:text-white py-1 px-4 border border-pink-400 hover:border-transparent rounded ">
               Back
             </button>
           </Link>

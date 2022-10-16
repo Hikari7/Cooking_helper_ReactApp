@@ -13,15 +13,15 @@ export default function ToBuyListItem({
 
   return (
     <div className={` ${completed ? "completed" : ""}`}>
-      <div className="mx-auto justify-center flex items-center my-2 w-2/4">
+      <div className="mx-auto justify-center flex items-center w-2/4 mt-4">
         <span
-          className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
+          className="material-symbols-outlined items-center cursor-pointer hover:opacity-30 mr-3 text-rose-500"
           checked
           onClick={() => handleCompleted(list)}
         >
           done
         </span>
-        <div className="bg-orange-300 p-2 w-full tracking-wider rounded-md">
+        <div className="p-2 tracking-wider rounded-md bg-lime-200 w-3/5">
           {isEditing ? (
             <EditForm
               handleEdit={handleEdit}
@@ -34,13 +34,13 @@ export default function ToBuyListItem({
           )}
         </div>
         <span
-          className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
+          className="material-symbols-outlined items-center cursor-pointer hover:opacity-30 ml-3"
           onClick={() => handleDelete(list)}
         >
           delete
         </span>
         <span
-          className="material-symbols-outlined items-center cursor-pointer hover:opacity-30"
+          className="material-symbols-outlined items-center cursor-pointer hover:opacity-30 ml-3"
           onClick={() => setIsEditing(!isEditing)}
         >
           edit

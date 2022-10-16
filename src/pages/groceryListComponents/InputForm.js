@@ -12,17 +12,17 @@ export default function InputForm({ setText }) {
   return (
     <div>
       <form
-        className="flex my-6 mx-0 items-center justify-center"
+        className="flex my-10 mx-0 items-center justify-center"
         onSubmit={handleSubmit}
       >
         <input
-          className="block shadow-lg rounded px-2 pt-2 pb-2 w-3/5"
+          className="block shadow-lg rounded px-2 pt-2 pb-2 w-96"
           type="text"
           ref={ref}
           placeholder="Type an item"
         />
         <span
-          className="material-symbols-outlined cursor-pointer hover:opacity-30"
+          className="material-symbols-outlined cursor-pointer hover:opacity-30 ml-3"
           onClick={handleSubmit}
         >
           add
@@ -31,4 +31,3 @@ export default function InputForm({ setText }) {
     </div>
   );
 }
-

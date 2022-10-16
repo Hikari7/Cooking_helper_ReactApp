@@ -12,11 +12,6 @@ export default function EditForm({ handleEdit, id, setIsEditing }) {
     }
   };
 
-  const handleCancel = (e) => {
-    e.preventDefault();
-    ref.current.value = "";
-  };
-
   return (
     <div>
       <form
@@ -24,21 +19,20 @@ export default function EditForm({ handleEdit, id, setIsEditing }) {
         onChange={handleEditSubmit}
       >
         <input
-          className="block shadow-lg rounded px-2 pt-2 pb-2 w-3/5 bg-pink-100"
+          className="block shadow-lg rounded px-2 pt-2 pb-2  bg-pink-100 w-3/5"
           type="text"
           ref={ref}
-          placeholder="Edit an item"
+          placeholder="Edit the item"
         />
         <span
-          className="material-symbols-outlined cursor-pointer hover:opacity-30 ml-2"
+          className="material-symbols-outlined cursor-pointer hover:opacity-30 ml-2 text-gray-500"
           onChange={() => handleEditSubmit}
           onClick={() => setIsEditing(false)}
         >
           add_task
         </span>
         <span
-          className="material-symbols-outlined cursor-pointer hover:opacity-30 ml-2"
-          onSubmit={() => handleCancel}
+          className="material-symbols-outlined cursor-pointer hover:opacity-30 ml-2 text-gray-500"
           onClick={() => setIsEditing(false)}
         >
           cancel

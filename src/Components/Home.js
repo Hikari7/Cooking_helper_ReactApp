@@ -18,8 +18,11 @@ const Home = () => {
             <li className="my-3 cursor-pointer hover:text-stone-500">
               <Link to="/idea">Get some inspirations</Link>
             </li>
+            <li className="my-3 cursor-pointer hover:text-stone-500">
+              <Link to="/carolies">Search healthy meals</Link>
+            </li>
             <li className="cursor-pointer hover:text-stone-500">
-              <Link to="/carolies">Search healthy meals </Link>
+              <Link to="/grocerylist">Grocery List</Link>
             </li>
           </ul>
         </div>
