@@ -26,8 +26,10 @@ export default function ToBuyListItem({
             <EditForm
               handleEdit={handleEdit}
               text={text}
+              list={list}
               id={list}
               setIsEditing={setIsEditing}
+              isEditing={isEditing}
             />
           ) : (
             <>{text}</>
