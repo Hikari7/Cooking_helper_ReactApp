@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ToBuyListItem from "./ToBuyListItem";
 
-const ToBuyList = ({ text }) => {
+const ToBuyList = ({ text, setText }) => {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
@@ -10,6 +10,7 @@ const ToBuyList = ({ text }) => {
         ...prevState,
         { id: Math.random(), completed: false, text, isEditing: false },
       ]);
+      setText("");
     }
   }, [text]);
 
@@ -23,6 +24,7 @@ const ToBuyList = ({ text }) => {
   const handleCompleted = (key) => {
     const completedItem = lists.map((list) => {
       if (key === list.id) {
+        console.log(list);
         return {
           ...list,
           completed: !list.completed,

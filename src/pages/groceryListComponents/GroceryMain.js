@@ -16,11 +16,13 @@ function GroceryMain() {
         <main className="roundedpx-16 py-16 px-10 bg-white container text-center mx-auto w-4/5">
           <Header />
           <InputForm setText={setText} />
-          <ToBuyList text={text} />
+          <ToBuyList text={text} setText={setText} />
           <div className="bottom flex justify-center mt-5">
             <Link to="/">
-              <button className="bg-transparent hover:bg-pink-200 text-pink-300 font-semibold hover:text-white py-1 px-4 border border-pink-400 hover:border-transparent rounded mt-10
-              ">
+              <button
+                className="bg-transparent hover:bg-pink-200 text-pink-300 font-semibold hover:text-white py-1 px-4 border border-pink-400 hover:border-transparent rounded mt-10
+              "
+              >
                 Back
               </button>
             </Link>

@@ -6,6 +6,7 @@ export default function EditForm({ handleEdit, id, setIsEditing, list }) {
   // Setup onChange handler for edit input
   const handleEditSubmit = (e) => {
     e.preventDefault();
+    console.log(ref.current);
     if (ref.current.value) {
       const handleEditInput = ref.current.value;
       handleEdit({ text: handleEditInput, id });
@@ -25,19 +26,23 @@ export default function EditForm({ handleEdit, id, setIsEditing, list }) {
           type="text"
           ref={ref}
           placeholder="Edit the item"
-          onChange={handleEditSubmit}
+          // onChange={handleEditSubmit}
         />
         <span
           className="material-symbols-outlined cursor-pointer hover:opacity-30 ml-2 text-gray-500"
-          onChange={() => handleEditSubmit}
-          onClick={() => setIsEditing(false)}
+          // onChange={() => handleEditSubmit, }
+          onClick={(e) => {
+            setIsEditing(false);
+            handleEditSubmit(e);
+          }}
         >
           add_task
         </span>
         <span
           className="material-symbols-outlined cursor-pointer hover:opacity-30 ml-2 text-gray-500"
-          onChange={() => handleCancel}
+          // onChange={() => handleCancel}
           onClick={() => setIsEditing(false)}
+          // onSubmit={() => setIsEditing(false)}
           // onSubmit={() => handleCancel}
         >
           cancel
