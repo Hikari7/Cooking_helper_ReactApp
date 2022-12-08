@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import RecipeIdea from "./pages/ideaComponents/RecipeIdea";
+import React from "react";
+import RecipeIdea from "./Components/ideaComponents/RecipeIdea";
 import "./App.css";
-import MealMain from "./pages/searchComponents/MealMain";
-import Home from "./Components/Home";
+import MealMain from "./Components/searchComponents/MealMain";
+import Home from "./Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import GroceryMain from "./pages/groceryListComponents/GroceryMain";
+import GroceryMain from "./Components/groceryListComponents/GroceryMain";
 
 export const App = () => {
   return (
