@@ -1,14 +1,14 @@
-# Sleep tight
+# Cook Helper App
 
 A web application helps users to prepare meals
 
 ## Demo Link
 
-- [Cook Helper App](https://sleeptight.vercel.app/)
+- [Cook Helper App](https://meal-idea-generation-react-lbzm7bvj4-hikari7.vercel.app/)
 
-![The home image](./Home.png)
-![Search image](./Calories.png)
-![Grocery image](./Grocerylist.png)
+![The home image](./src/ReadMe/Home.png)
+![Search image](./src/ReadMe/recipes.png)
+![Grocery image](./src/ReadMe/Grocerylist.png)
 
 ## Built With
 
